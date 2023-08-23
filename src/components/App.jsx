@@ -29,9 +29,15 @@ export function App() {
     setModal(true);
   }
 
-   const handleSubmit = query => {
-     setQuery(query)
-   }
+  const handleSubmit = query => {
+    if (query !== queryRef) {
+      console.log(query);
+      console.log(queryRef);
+      setQuery(query);
+      // setItems([]);
+      setPage(1);
+    }
+  }
 
   const hadleButtonClick = () => {
     if (items.length < totalHits) {
@@ -47,7 +53,7 @@ export function App() {
     if (!query) {
       return
     };
-    setIsLoading(true)
+      setIsLoading(true)
     if (queryRef !== query || pageRef !== page) {
       FethItem(query, page).then(r => {
         setItems(prevState => ([...prevState, ...r.hits]));

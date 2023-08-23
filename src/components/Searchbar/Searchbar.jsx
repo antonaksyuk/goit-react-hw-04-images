@@ -10,7 +10,8 @@ export default function SerchBar({ search}) {
  const handleFormSubmit = (e) => { 
     e.preventDefault();
    search(query);
-    setQuery('');
+   setQuery('');
+   
   }
 
  const handleChange = (e) => {
